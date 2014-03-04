@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ShutdownGenius
@@ -20,36 +21,53 @@ namespace ShutdownGenius
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            var message = string.Empty;
+            if (radHibernate.Checked)
             {
-                var exectutionTime = dateTimePicker1.Value;
+                message = "Hibernate";
+            }
+            else if (radShutdown.Checked)
+            {
+                message = "Shutdown";
+            }else if (radRestart.Checked)
+            {
+                message = "Restart";
+            }
 
-                while (DateTime.Now< exectutionTime)
+            label3.Text = message + "Set at " + dateTimePicker1.Value.ToString("yyyy-MMM-dd HH:mm:ss");
+
+            Task.Factory.StartNew(() =>
+            {
+                try
                 {
-                    Thread.Sleep(10000);
+                    var exectutionTime = dateTimePicker1.Value;
+
+                    while (DateTime.Now < exectutionTime)
+                    {
+                        Thread.Sleep(10000);
+                    }
+
+                    DoAction();
                 }
-
-                DoAction();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("invalid time");
-            }
-
+                catch (Exception ex)
+                {
+                    MessageBox.Show("invalid time");
+                }
+            });
         }
 
         private void DoAction()
         {
-            if (radioButton1.Checked)
-            { 
+            if (radHibernate.Checked)
+            {
                 // Hibernate
                 Application.SetSuspendState(PowerState.Hibernate, true, true);
             }
-            else if (radioButton2.Checked)
+            else if (radShutdown.Checked)
             {
                 Process.Start("shutdown", "/s /t 0");
             }
-            else if (radioButton3.Checked)
+            else if (radRestart.Checked)
             {
                 Process.Start("shutdown", "/r /t 0");
             }

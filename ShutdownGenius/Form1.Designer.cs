@@ -30,12 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radShutdown = new System.Windows.Forms.RadioButton();
+            this.radHibernate = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radRestart = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -47,27 +48,27 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "At What Time?";
             // 
-            // radioButton1
+            // radShutdown
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(35, 13);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(73, 17);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Shutdown";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radShutdown.AutoSize = true;
+            this.radShutdown.Location = new System.Drawing.Point(35, 37);
+            this.radShutdown.Name = "radShutdown";
+            this.radShutdown.Size = new System.Drawing.Size(73, 17);
+            this.radShutdown.TabIndex = 1;
+            this.radShutdown.TabStop = true;
+            this.radShutdown.Text = "Shutdown";
+            this.radShutdown.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radHibernate
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(35, 37);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(71, 17);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Hibernate";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radHibernate.AutoSize = true;
+            this.radHibernate.Location = new System.Drawing.Point(35, 12);
+            this.radHibernate.Name = "radHibernate";
+            this.radHibernate.Size = new System.Drawing.Size(71, 17);
+            this.radHibernate.TabIndex = 2;
+            this.radHibernate.TabStop = true;
+            this.radHibernate.Text = "Hibernate";
+            this.radHibernate.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -80,7 +81,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(146, 159);
+            this.button1.Location = new System.Drawing.Point(35, 167);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 58);
             this.button1.TabIndex = 5;
@@ -97,28 +98,38 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 6;
             // 
-            // radioButton3
+            // radRestart
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(35, 60);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(59, 17);
-            this.radioButton3.TabIndex = 7;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Restart";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radRestart.AutoSize = true;
+            this.radRestart.Location = new System.Drawing.Point(35, 60);
+            this.radRestart.Name = "radRestart";
+            this.radRestart.Size = new System.Drawing.Size(59, 17);
+            this.radRestart.TabIndex = 7;
+            this.radRestart.TabStop = true;
+            this.radRestart.Text = "Restart";
+            this.radRestart.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(35, 151);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "           ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 230);
-            this.Controls.Add(this.radioButton3);
+            this.ClientSize = new System.Drawing.Size(319, 230);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.radRestart);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radHibernate);
+            this.Controls.Add(this.radShutdown);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -134,12 +145,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radShutdown;
+        private System.Windows.Forms.RadioButton radHibernate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radRestart;
+        private System.Windows.Forms.Label label3;
     }
 }
 
